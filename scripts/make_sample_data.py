@@ -1,10 +1,3 @@
-"""Write a small *synthetic* dataset with the same files and columns as Olist.
-
-This is only for CI and the test suite, so the pipeline can run without the
-real download. None of the numbers in the README come from this data.
-
-    python scripts/make_sample_data.py --out data/sample --orders 3000
-"""
 
 import argparse
 import csv
