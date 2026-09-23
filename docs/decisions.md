@@ -1,6 +1,5 @@
 # Decisions
 
-Short notes on choices that weren't obvious, and what they cost.
 
 ## 1. Load everything as text, cast in dbt
 The loader copies every csv column into postgres as `text`, and types are set in the staging models.
