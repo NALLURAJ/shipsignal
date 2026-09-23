@@ -2,7 +2,6 @@
 
 End-to-end retail analytics on about 100k real e-commerce orders: a tested SQL warehouse, four business questions answered with proper statistics, a Tableau dashboard, a FastAPI service with a Streamlit front end, and a natural-language assistant with SQL guardrails that is scored against 40 questions with known answers.
 
-![ci](https://github.com/GITHUB_USER/shipsignal/actions/workflows/ci.yml/badge.svg)
 
 **Dashboard:** _Tableau Public link goes here_ · **Notebooks:** [`analysis/`](analysis/) · **Decisions:** [`docs/decisions.md`](docs/decisions.md)
 
