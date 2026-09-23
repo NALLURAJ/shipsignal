@@ -101,7 +101,7 @@ def load():
 def main():
     D = load()
     plt.rcParams.update({
-        "font.family": "DejaVu Sans", "font.size": 10,
+        "font.family": "Poppins", "font.size": 10,
         "axes.edgecolor": GRID, "axes.labelcolor": INK2,
         "xtick.color": INK2, "ytick.color": INK2,
         "axes.spines.top": False, "axes.spines.right": False,
@@ -111,11 +111,9 @@ def main():
 
     fig = plt.figure(figsize=(18, 11.2), dpi=150)
     gs = fig.add_gridspec(3, 3, height_ratios=[0.34, 1, 1], hspace=0.62, wspace=0.28,
-                          left=0.045, right=0.975, top=0.88, bottom=0.095)
-    fig.text(0.045, 0.955, "ShipSignal  |  Olist e-commerce, Jan 2017 to Aug 2018", fontsize=20,
+                          left=0.045, right=0.975, top=0.905, bottom=0.095)
+    fig.text(0.045, 0.95, "ShipSignal", fontsize=24,
              fontweight="bold", color=INK)
-    fig.text(0.045, 0.925, "How delivery performance shows up in repeat purchases, reviews and revenue. "
-             "~100k orders, Brazilian marketplace.", fontsize=11.5, color=INK2)
 
     def title(ax, t, sub=None):
         ax.set_title(t, loc="left", fontsize=12.5, fontweight="bold", color=INK, pad=22)
@@ -214,7 +212,7 @@ def main():
     ax.set_xlim(-6.8, 12)
     ax.set_xticks([0, 2, 4, 6, 8, 10, 12])
     ax.axvline(0, color=GRID, lw=1)
-    ax.text(0.0, -0.2, "○ Jan-Jun 2017   ● Mar-Aug 2018   blue = gained share, orange = lost (Holm-adjusted)",
+    ax.text(0.0, -0.2, "hollow dot = Jan-Jun 2017, filled dot = Mar-Aug 2018. blue = gained share, orange = lost (Holm-adjusted)",
             transform=ax.transAxes, fontsize=8.5, color=INK2)
     title(ax, "Only watches & gifts truly gained share",
           "Top 10 categories: revenue share, first 6 vs last 6 months")
@@ -254,7 +252,7 @@ def main():
     ax.plot(wk["d"], wk["sarima"], color=BLUE, lw=2, marker="o", ms=4.5, markeredgecolor=SURF, label="SARIMA")
     ax.plot(wk["d"], wk["naive"], color=ORANGE, lw=2, ls="--", label="seasonal naive (baseline)")
     ax.axvline(wk["d"].iloc[0] - pd.Timedelta(days=7), color=MUTED, lw=1, ls=":")
-    ax.text(wk["d"].iloc[0] - pd.Timedelta(days=5), 2150, "hold-out →", fontsize=9, color=MUTED)
+    ax.text(wk["d"].iloc[0] - pd.Timedelta(days=5), 2150, "hold-out", fontsize=9, color=MUTED)
     ax.set_ylabel("orders per week")
     ax.set_ylim(0, 2700)
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
