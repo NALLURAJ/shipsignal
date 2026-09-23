@@ -1,4 +1,4 @@
-.PHONY: setup db warehouse notebooks api app eval test lint sample tableau
+.PHONY: setup db warehouse notebooks dashboard api app eval test lint sample tableau
 
 setup:
 	python3 -m venv .venv && . .venv/bin/activate && pip install -r requirements-dev.txt
@@ -13,6 +13,9 @@ warehouse:
 
 notebooks:
 	cd analysis && for nb in 0*.ipynb; do jupyter nbconvert --to notebook --execute --inplace $$nb; done
+
+dashboard:
+	python -m analysis.make_dashboard
 
 api:
 	uvicorn api.main:app --reload

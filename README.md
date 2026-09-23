@@ -2,7 +2,9 @@
 
 Analysis of ~100k orders from Olist (a Brazilian e-commerce marketplace, 2016-2018). I wanted to see how much delivery delays actually hurt a marketplace, so I built the whole thing end to end: a postgres warehouse with dbt, some stats notebooks, a small API + streamlit app, and a local LLM that answers questions about the data in plain english.
 
-Dashboard: tableau link coming soon
+![dashboard](images/dashboard.png)
+
+Summary of the main findings. The streamlit app below has the interactive version (runs locally, see How to run), and a tableau version is in progress.
 
 ![app](images/app.png)
 
@@ -62,10 +64,10 @@ Tests: `make test`. CI runs ruff, sqlfluff, dbt build and pytest on a small fake
 
 ## Stack
 
-postgres, dbt, pandas, statsmodels, fastapi, streamlit, ollama, sqlglot, pytest, docker, github actions, tableau
+postgres, dbt, pandas, statsmodels, matplotlib, fastapi, streamlit, ollama, sqlglot, pytest, docker, github actions
 
 ## Notes
 
 - Data is from Olist on Kaggle (CC BY-NC-SA 4.0), not included in the repo.
 - Only ~20 months of usable data so the forecast can't learn yearly seasonality (black friday etc).
-- TODO: tableau dashboard, host the streamlit app, try a bigger model for the assistant.
+- TODO: tableau public version of the dashboard, host the streamlit app, try a bigger model for the assistant.
