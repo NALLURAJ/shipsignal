@@ -2,7 +2,7 @@
 
 Analysis of ~100k orders from Olist (a Brazilian e-commerce marketplace, 2016-2018). I wanted to see how much delivery delays actually hurt a marketplace, so I built the whole thing end to end: a postgres warehouse with dbt, some stats notebooks, a small API + streamlit app, and a local LLM that answers questions about the data in plain english.
 
-![dashboard](images/dashboard.png)
+![dashboard](images/dashboard_upd.png)
 
 Summary of the main findings. The streamlit app below has the interactive version (runs locally, see How to run), and a tableau version is in progress.
 
