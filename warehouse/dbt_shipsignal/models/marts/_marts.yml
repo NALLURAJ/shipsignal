@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: Calendar table covering every year that has orders.
+    columns:
+      - name: date_day
+        tests: [unique, not_null]
+
+  - name: dim_customer
+    description: One row per real customer (customer_unique_id), located by their first order.
+    columns:
+      - name: customer_unique_id
+        tests: [unique, not_null]
+
+  - name: dim_product
+    description: One row per product with its english category name.
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+      - name: category
+        tests: [not_null]
+
+  - name: dim_seller
+    columns:
+      - name: seller_id
+        tests: [unique, not_null]
+
+  - name: fct_orders
+    description: >
+      One row per order. order_total is items plus freight. is_late compares the
+      delivered date to the estimated delivery date and is null for undelivered orders.
+    columns:
+      - name: order_id
+        tests: [unique, not_null]
+      - name: customer_unique_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_unique_id
+      - name: purchase_date
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_day
+
+  - name: fct_order_items
+    description: One row per item in an order.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_orders')
+                field: order_id
+      - name: product_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+
+  - name: fct_reviews
+    description: One row per (review_id, order_id). Use is_latest_for_order for one review per order.
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('fct_orders')
+                field: order_id
+      - name: review_score
+        tests:
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5]
+                quote: false

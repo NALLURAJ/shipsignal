@@ -1,0 +1,8 @@
+.git
+.venv
+venv
+data/raw
+**/__pycache__
+warehouse/dbt_shipsignal/target
+warehouse/dbt_shipsignal/logs
+.env

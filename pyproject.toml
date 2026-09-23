@@ -1,0 +1,19 @@
+[project]
+name = "shipsignal"
+version = "0.1.0"
+description = "Retail analytics on the Olist e-commerce dataset: warehouse, stats, dashboard, API and a SQL assistant."
+requires-python = ">=3.10"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+extend-exclude = ["warehouse/dbt_shipsignal/target"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501", "B008", "B905"]  # B008: fastapi Depends() in defaults is the normal pattern
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = ["db: needs a running postgres with the warehouse built"]

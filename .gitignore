@@ -1,0 +1,35 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# secrets
+.env
+
+# data (download it yourself, see README)
+data/raw/*
+!data/raw/.gitkeep
+
+# dbt
+warehouse/dbt_shipsignal/target/
+warehouse/dbt_shipsignal/logs/
+warehouse/dbt_shipsignal/dbt_packages/
+logs/
+
+# assistant cache
+.cache/
+
+# os / editors
+.DS_Store
+.vscode/
+.idea/
+
+data/sample/
+bi/extracts/
+warehouse/dbt_shipsignal/.user.yml
