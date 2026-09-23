@@ -33,3 +33,9 @@ logs/
 data/sample/
 bi/extracts/
 warehouse/dbt_shipsignal/.user.yml
+
+# notes, kept local
+docs/
+bi/README.md
+eval/README.md
+eval/results/summary.md

@@ -1,4 +1,4 @@
-"""SQL behind each endpoint. Definitions match docs/definitions.md."""
+"""SQL behind each endpoint. Definitions match assistant/knowledge/definitions.md."""
 
 from datetime import date
 

@@ -13,8 +13,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 DOCS = [
-    Path(__file__).resolve().parent.parent / "docs" / "definitions.md",
-    Path(__file__).resolve().parent.parent / "docs" / "findings.md",
+    Path(__file__).resolve().parent / "knowledge" / "definitions.md",
+    Path(__file__).resolve().parent / "knowledge" / "findings.md",
 ]
 
 
